@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="a"
+            type="String" />
+
+        <import type="top.corobot.xml.core.DrawableExpression" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            drawable_bg="@{DrawableExpression.shape().solid(`#eaeaea`)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/test"
+                drawable_bg="@{DrawableExpression.shape().corner(60).solid(`@i2`).stroke(`4dp`,`@i2`)}"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/test"
+                android:gravity="center"
+                android:text="@string/app_name">
+
+                <tag
+                    android:id="@id/i1"
+                    android:value="@color/colorPrimaryDark" />
+
+                <tag
+                    android:id="@id/i2"
+                    android:value="@color/colorAccent" />
+            </TextView>
+
+            <Button
+                drawable_bg_pressed="@{DrawableExpression.shape().corner(`10dp,15dp,20dp,30dp`).stroke(`4dp`,`@i2`).gradient(`#26262a`,`#ff0699`,0)}"
+                drawable_bg_unpressed="@{DrawableExpression.shape().corner(60).solid(`@i1`).stroke(`4dp`,`@i2`)}"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Hello World!">
+
+                <tag
+                    android:id="@id/i1"
+                    android:value="@color/colorPrimaryDark" />
+
+                <tag
+                    android:id="@id/i2"
+                    android:value="@color/colorAccent" />
+            </Button>
+
+            <TextView
+                android:id="@+id/test2"
+                drawable_bg="@{DrawableExpression.shape().corner(`10dp,15dp,20dp,30dp`).stroke(`4dp`,`@i2`).gradient(`#26262a`,`#ff0699`,0)}"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/test"
+                android:gravity="center"
+                android:text="@string/app_name">
+
+                <tag
+                    android:id="@id/i1"
+                    android:value="@color/colorPrimaryDark" />
+
+                <tag
+                    android:id="@id/i2"
+                    android:value="@color/colorAccent" />
+            </TextView>
+
+            <CheckBox
+                drawable_bg="@{DrawableExpression.shape().corner(60).solid(`@i2`).stroke(`4dp`,`@i2`)}"
+                drawable_bg_pressed="@{DrawableExpression.shape().corner(`10dp,15dp,20dp,30dp`).stroke(`4dp`,`@i2`).gradient(`#26262a`,`#ff0699`,0)}"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/test"
+                android:gravity="center"
+                android:text="错误示范：drawable_bg只能单独使用，一旦有其他的，就需要使用相应的成对的">
+
+                <tag
+                    android:id="@id/i1"
+                    android:value="@color/colorPrimaryDark" />
+
+                <tag
+                    android:id="@id/i2"
+                    android:value="@color/colorAccent" />
+            </CheckBox>
+
+            <CheckBox
+                drawable_bg_checked="@{DrawableExpression.shape().corner(60).solid(`@i2`).stroke(`4dp`,`@i2`)}"
+                drawable_bg_unchecked="@{DrawableExpression.shape().corner(`10dp,15dp,20dp,30dp`).stroke(`4dp`,`@i2`).gradient(`#26262a`,`#ff0699`,0)}"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/test"
+                android:gravity="center"
+                android:text="check状态">
+
+                <tag
+                    android:id="@id/log_tag"
+                    android:value="测试log tag" />
+
+                <tag
+                    android:id="@id/i1"
+                    android:value="@color/colorPrimaryDark" />
+
+                <tag
+                    android:id="@id/i2"
+                    android:value="@color/colorAccent" />
+
+                <tag
+                    android:id="@id/i3"
+                    android:value="@string/app_name" />
+            </CheckBox>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
